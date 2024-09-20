@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Approval Status</title>
+<style>
+  table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  th, td {
+    border: 1px solid black;
+    padding: 8px;
+    text-align: left;
+  }
+</style>
+</head>
+<body>
+
+<table id="propertyTable">
+  <thead>
+    <tr>
+      <th>Property ID</th>
+      <th>Property Name</th>
+      <th>Landlord Name</th>
+      <th>Price</th>
+      <th>Approved or Not</th>
+      <th>Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>Property 1</td>
+      <td>Landlord 1</td>
+      <td>$1000</td>
+      <td>
+        <button onclick="setStatus('approved', 0)">Approve</button>
+        <button onclick="setStatus('cancelled', 0)">Cancel</button>
+      </td>
+      <td></td>
+    </tr>
+    <!-- Add more rows as needed -->
+  </tbody>
+</table>
+
+<script>
+  function setStatus(status, rowIndex) {
+    var table = document.getElementById('propertyTable');
+    var row = table.rows[rowIndex + 1]; // Add 1 because first row is the header
+    var statusCell = row.cells[row.cells.length - 1]; // Last cell is the status cell
+
+    statusCell.textContent = status;
+  }
+</script>
+
+</body>
+</html>
